@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS文字溢出显示title，否则不显示。</title>
+    <style>
+      div {
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>这是一段浪漫的话！</span>
+    </div>
+    <script>
+      const dDom = document.getElementsByTagName('div')[0]
+      const sDom = document.getElementsByTagName('span')[0]
+
+      const dWidth = sDom.parentNode.offsetWidth
+      const sWidth = sDom.offsetWidth
+
+      sDom.addEventListener('mouseover', () => {
+        if (sWidth > dWidth) {
+          sDom.title = '这是一段浪漫的话！'
+        }
+      })
+    </script>
+  </body>
+</html>
